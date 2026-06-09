@@ -152,6 +152,7 @@ for i in display_df.index:
             )
             btn_save, btn_close = st.columns([1, 5])
             if btn_save.button("💾 บันทึก", key=f"save_detail_{i}", type="primary"):
+                df['Detail'] = df['Detail'].astype(object)
                 df.at[i, 'Detail'] = detail_text
                 save(df)
                 st.success("บันทึกรายละเอียดเรียบร้อยแล้ว!")
